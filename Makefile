@@ -12,7 +12,7 @@ mysql:
 ## rabbitmq: rabbitmq docker
 .PHONY: rabbitmq
 rabbitmq:
-	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3.11.0-management
+	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 -v rabbitmq:/var/lib/rabbitmq rabbitmq:3.11.0-management
 
 ## postgres: postgres docker
 .PHONY: postgres
