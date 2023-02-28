@@ -19,3 +19,7 @@ rabbitmq:
 postgres:
 	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres
 
+## httpbin: httpbin docker
+.PHONY: httpbin
+httpbin:
+	docker run -d --name httpbin -p 80:80 kennethreitz/httpbin
