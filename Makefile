@@ -17,5 +17,5 @@ rabbitmq:
 ## postgres: postgres docker
 .PHONY: postgres
 postgres:
-	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -v postgresql:/var/lib/postgresql postgres
+	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres
 
