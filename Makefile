@@ -19,6 +19,12 @@ rabbitmq:
 postgres:
 	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres
 
+## azuresqledge: Microsoft Azure SQL Edge docker
+.PHONY: azuresqledge
+azuresqledge:
+	# https://mcr.microsoft.com/en-us/product/mssql/server/about mssql-server not support mac, so use it
+	docker run -d --name azuresqledge -p 1433:1433 -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=12344321aA" -v azuresqledge:/var/opt/mssql-extensibility/data -v azuresqledge:/var/opt/mssql-extensibility/log -v azuresqledge:/var/opt/mssql-extensibility mcr.microsoft.com/azure-sql-edge
+
 ## httpbin: httpbin docker
 .PHONY: httpbin
 httpbin:
