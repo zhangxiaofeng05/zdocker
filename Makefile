@@ -23,3 +23,13 @@ postgres:
 .PHONY: httpbin
 httpbin:
 	docker run -d --name httpbin -p 80:80 kennethreitz/httpbin
+
+## redis: redis docker
+.PHONY: redis
+redis:
+	docker run -d --name redis -p 6379:6379 -v redis:/data redis
+
+## rediscli: redis cli
+.PHONY: rediscli
+rediscli:
+	docker exec -it redis redis-cli
