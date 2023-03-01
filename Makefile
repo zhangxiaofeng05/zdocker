@@ -33,3 +33,13 @@ redis:
 .PHONY: rediscli
 rediscli:
 	docker exec -it redis redis-cli
+
+## adminer: adminer docker
+.PHONY: adminer
+adminer:
+	docker run -d --name adminer -p 8080:8080 adminer
+
+## phpmyadmin: phpmyadmin docker
+.PHONY: phpmyadmin
+phpmyadmin:
+	docker run -d --name phpmyadmin -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin
