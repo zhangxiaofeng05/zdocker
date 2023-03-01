@@ -49,3 +49,8 @@ adminer:
 .PHONY: phpmyadmin
 phpmyadmin:
 	docker run -d --name phpmyadmin -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin
+
+## etcd: etcd docker
+.PHONY: etcd
+etcd:
+	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ALLOW_NONE_AUTHENTICATION=yes -v etcd:/bitnami/etcd bitnami/etcd:latest
