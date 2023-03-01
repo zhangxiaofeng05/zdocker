@@ -54,3 +54,8 @@ phpmyadmin:
 .PHONY: etcd
 etcd:
 	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ALLOW_NONE_AUTHENTICATION=yes -v etcd:/bitnami/etcd bitnami/etcd:latest
+
+## mongo: mongo docker
+.PHONY: mongo
+mongo:
+	docker run -d --name mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 -v mongo:/data/db -v mongo:/data/configdb mongo
