@@ -65,3 +65,10 @@ mongo:
 mongo-express:
 	# you can also try https://www.mongodb.com/products/compass
 	docker run -d --name mongo-express -p 8081:8081 -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -e ME_CONFIG_MONGODB_ADMINUSERNAME=root -e ME_CONFIG_MONGODB_ADMINPASSWORD=123456 mongo-express
+
+## elasticsearch: elasticsearch docker
+.PHONY: elasticsearch
+elasticsearch:
+	# https://localhost:9200/
+	# Password for the 'elastic' user (at least 6 characters)
+	docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e discovery.type=single-node -e ELASTIC_PASSWORD=123456 -v elasticsearch:/usr/share/elasticsearch/data elasticsearch:8.6.2
