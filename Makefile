@@ -72,3 +72,8 @@ elasticsearch:
 	# http://localhost:9200/  https://www.elastic.co/guide/en/elasticsearch/reference/current/security-minimal-setup.html#_enable_elasticsearch_security_features
 	# Password for the 'elastic' user (at least 6 characters)
 	docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e discovery.type=single-node -e ELASTIC_PASSWORD=123456 -e xpack.security.enabled=true -v elasticsearch:/usr/share/elasticsearch/data elasticsearch:8.6.2
+
+## nats: NATS docker
+.PHONY: nats
+nats:
+	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:latest
