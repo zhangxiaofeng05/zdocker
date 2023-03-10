@@ -77,3 +77,10 @@ elasticsearch:
 .PHONY: nats
 nats:
 	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:latest
+
+## minio: minio docker
+.PHONY: minio
+minio:
+	# default root credentials minioadmin:minioadmin
+	# web browser http://127.0.0.1:9001
+	docker run -d --name minio -p 9000:9000 -p 9001:9001 -v minio:/data minio/minio server /data --console-address ":9001"
