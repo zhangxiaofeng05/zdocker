@@ -93,6 +93,12 @@ elasticsearch:
 	# Password for the 'elastic' user (at least 6 characters)
 	docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e discovery.type=single-node -e ELASTIC_PASSWORD=123456 -e xpack.security.enabled=true -v elasticsearch:/usr/share/elasticsearch/data elasticsearch:8.6.2
 
+## grafana: grafana docker
+.PHONY: grafana
+grafana:
+	# default admin user credentials are admin/admin.
+	docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
 ## nats: NATS docker
 .PHONY: nats
 nats:
