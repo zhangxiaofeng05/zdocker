@@ -34,6 +34,14 @@ jaeger:
   -p 9411:9411 \
   jaegertracing/all-in-one:1.43
 
+## jenkins: jenkins docker
+.PHONY: jenkins
+jenkins:
+	# https://github.com/jenkinsci/docker
+	# UI http://127.0.0.1:8080
+	# reference: https://juejin.cn/post/6967243012199940110
+	docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins:/var/jenkins_home jenkins/jenkins:lts-jdk11
+
 ## postgres: postgres docker
 .PHONY: postgres
 postgres:
