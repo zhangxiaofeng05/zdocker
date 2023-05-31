@@ -8,6 +8,8 @@ help: Makefile
 .PHONY: mysql
 mysql:
 	docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v mysql:/var/lib/mysql mysql:8.0
+	## mysql 5.7
+	# docker run --platform linux/x86_64 -d --name mysql5.7 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v mysql5.7:/var/lib/mysql mysql:5.7.42
 
 ## rabbitmq: rabbitmq docker
 .PHONY: rabbitmq
