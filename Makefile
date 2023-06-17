@@ -49,6 +49,12 @@ jenkins:
 postgres:
 	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres
 
+## ClickHouse: ClickHouse docker
+.PHONY: ClickHouse
+ClickHouse:
+	# By default, starting above server instance will be run as the default user without password.
+	docker run -d --name clickhouse -p 8123:8123 -p 9000:9000 -p 9009:9009 --ulimit nofile=262144:262144 -v clickhouse:/var/lib/clickhouse clickhouse/clickhouse-server
+
 ## azuresqledge: Microsoft Azure SQL Edge docker
 .PHONY: azuresqledge
 azuresqledge:
