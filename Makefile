@@ -91,6 +91,12 @@ phpmyadmin:
 etcd:
 	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ALLOW_NONE_AUTHENTICATION=yes -v etcd:/bitnami/etcd bitnami/etcd:latest
 
+## consul: consul docker
+.PHONY: consul
+consul:
+	# web: http://127.0.0.1:8500
+	docker run -d --name consul -p 8500:8500 -e CONSUL_BIND_INTERFACE=eth0 -v consul:/consul/data consul:1.15 agent -server -bootstrap -ui -client=0.0.0.0
+
 ## mongo: mongo docker
 .PHONY: mongo
 mongo:
