@@ -26,3 +26,8 @@ docker run -d --name syncthing -p 8384:8384 -p 22000:22000/tcp -p 22000:22000/ud
     syncthing/syncthing:latest
 ```
 `"$HOME/syncthing:/var/syncthing"` syncthing directory
+
+## others
+### TiDB
+https://github.com/pingcap/tidb-docker-compose
+
