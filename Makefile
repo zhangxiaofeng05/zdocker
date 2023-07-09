@@ -132,3 +132,9 @@ minio:
 	# default root credentials minioadmin:minioadmin
 	# web browser http://127.0.0.1:9001
 	docker run -d --name minio -p 9000:9000 -p 9001:9001 -v minio:/data minio/minio server /data --console-address ":9001"
+
+## answer: answer docker
+.PHONY: answer
+answer:
+	docker run -d --name answer -p 9080:80 -v answer:/data answerdev/answer:latest
+
