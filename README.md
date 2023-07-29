@@ -25,7 +25,9 @@ docker run -d --name syncthing -p 8384:8384 -p 22000:22000/tcp -p 22000:22000/ud
     --hostname=my-syncthing \
     syncthing/syncthing:latest
 ```
-`"$HOME/syncthing:/var/syncthing"` syncthing directory
+`"$HOME/syncthing:/var/syncthing"` syncthing directory  
+browser: http://127.0.0.1:8384  
+设置局域网连接: `default, tcp://192.168.1.13:22000`  
 
 ## others
 ### TiDB
