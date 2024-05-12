@@ -86,6 +86,12 @@ adminer:
 phpmyadmin:
 	docker run -d --name phpmyadmin -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin
 
+## dbgate: dbgate docker
+.PHONY: dbgate
+dbgate:
+	# web: http://127.0.0.1:3000
+	docker run -d --name dbgate -p 3000:3000 dbgate/dbgate:5.2.7
+
 ## etcd: etcd docker
 .PHONY: etcd
 etcd:
