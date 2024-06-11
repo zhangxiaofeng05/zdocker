@@ -69,7 +69,7 @@ httpbin:
 ## redis: redis docker
 .PHONY: redis
 redis:
-	docker run -d --name redis -p 6379:6379 -v redis:/data redis
+	docker run -d --name redis -p 6379:6379 -v redis:/data redis:7.2.5 --requirepass "123456"
 
 ## rediscli: redis cli
 .PHONY: rediscli
