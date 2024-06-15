@@ -16,6 +16,13 @@ mysql:
 rabbitmq:
 	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 -v rabbitmq:/var/lib/rabbitmq rabbitmq:3.11.0-management
 
+## swagger-ui: swagger ui
+.PHONY: swagger-ui
+swagger-ui:
+	# https://github.com/swagger-api/swagger-ui
+	# swagger ui: http://127.0.0.1
+	docker run -d --name swagger-ui -p 80:8080 swaggerapi/swagger-ui
+
 ## jaeger: jaeger docker
 .PHONY: jaeger
 jaeger:
