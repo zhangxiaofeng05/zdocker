@@ -102,7 +102,10 @@ dbgate:
 ## etcd: etcd docker
 .PHONY: etcd
 etcd:
-	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ALLOW_NONE_AUTHENTICATION=yes -v etcd:/bitnami/etcd bitnami/etcd:latest
+	# https://github.com/bitnami/containers/tree/main/bitnami/etcd
+	#  参数设置：https://github.com/bitnami/containers/tree/main/bitnami/etcd#environment-variables
+	# -e ALLOW_NONE_AUTHENTICATION=yes 不设置密码
+	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ETCD_ROOT_PASSWORD=123456 -v etcd:/bitnami/etcd bitnami/etcd:3.5.14
 
 ## consul: consul docker
 .PHONY: consul
