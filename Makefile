@@ -147,7 +147,8 @@ grafana:
 ## nats: NATS docker
 .PHONY: nats
 nats:
-	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:latest
+	# https://docs.nats.io/running-a-nats-service/nats_docker/nats-docker-tutorial
+	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:2.10.17
 
 ## minio: minio docker
 .PHONY: minio
