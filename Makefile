@@ -16,6 +16,13 @@ mysql:
 rabbitmq:
 	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 -v rabbitmq:/var/lib/rabbitmq rabbitmq:3.11.0-management
 
+## kafka: kafka docker
+.PHONY: kafka
+kafka:
+	# https://kafka.apache.org/documentation/
+	# https://github.com/apache/kafka/blob/trunk/docker/examples/README.md
+	docker run -d --name kafka -p 9092:9092 -v kafka:/mnt/shared/config apache/kafka:3.7.0
+
 ## swagger-ui: swagger ui
 .PHONY: swagger-ui
 swagger-ui:
