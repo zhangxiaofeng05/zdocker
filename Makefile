@@ -162,3 +162,12 @@ minio:
 answer:
 	docker run -d --name answer -p 9080:80 -v answer:/data answerdev/answer:latest
 
+## minDoc: MinDoc docker
+minDoc:
+	# 创建数据库: CREATE DATABASE `mindoc_db`;
+	# web browser: http://127.0.0.1:8181
+	# 默认用户名: admin 密码: 123456
+	# github地址: https://github.com/mindoc-org/mindoc
+	docker run -d --name mindoc -p 8181:8181 -e MINDOC_DB_ADAPTER=mysql -e MINDOC_DB_HOST=host.docker.internal -e MINDOC_DB_PORT=3306 -e MINDOC_DB_DATABASE=mindoc_db -e MINDOC_DB_USERNAME=root -e MINDOC_DB_PASSWORD=123456 -e httpport=8181 -d registry.cn-hangzhou.aliyuncs.com/mindoc-org/mindoc:v2.1
+
+
