@@ -144,6 +144,13 @@ grafana:
 	# default admin user credentials are admin/admin.
 	docker run -d --name=grafana -p 3000:3000 grafana/grafana
 
+## pyroscope: pyroscope docker
+.PHONY: pyroscope
+pyroscope:
+	# github: https://github.com/grafana/pyroscope
+	# web browser: http://127.0.0.1:4040
+	docker run -d --name=pyroscope -p 4040:4040 -v pyroscope:/data grafana/pyroscope
+
 ## nats: NATS docker
 .PHONY: nats
 nats:
