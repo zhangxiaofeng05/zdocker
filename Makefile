@@ -129,6 +129,8 @@ mongo:
 .PHONY: mongo-express
 mongo-express:
 	# you can also try https://www.mongodb.com/products/compass
+	# web: http://127.0.0.1:8081
+	# 默认用户名: admin 密码: pass
 	docker run -d --name mongo-express -p 8081:8081 -e ME_CONFIG_MONGODB_SERVER=host.docker.internal -e ME_CONFIG_MONGODB_ADMINUSERNAME=root -e ME_CONFIG_MONGODB_ADMINPASSWORD=123456 mongo-express
 
 ## elasticsearch: elasticsearch docker
