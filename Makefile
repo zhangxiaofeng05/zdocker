@@ -90,6 +90,11 @@ redis:
 rediscli:
 	docker exec -it redis redis-cli
 
+## memcached: memcached docker
+.PHONY: memcached
+memcached:
+	docker run -d --name memcached -p 11211:11211 memcached:1.6
+
 ## adminer: adminer docker
 .PHONY: adminer
 adminer:
