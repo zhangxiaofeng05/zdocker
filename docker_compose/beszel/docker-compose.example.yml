@@ -1,0 +1,16 @@
+services:
+  beszel-agent:
+    image: "henrygd/beszel-agent"
+    container_name: "beszel-agent"
+    restart: unless-stopped
+    # network_mode: host
+    ports:
+      - "45876:45876"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # monitor other disks / partitions by mounting a folder in /extra-filesystems
+      # - /mnt/disk/.beszel:/extra-filesystems/sda1:ro
+    environment:
+      PORT: 45876
+      # 请勿删除密钥周围的引号
+      KEY: '使用“添加系统”对话框复制的公钥进行更新'
