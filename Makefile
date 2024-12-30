@@ -21,7 +21,7 @@ rabbitmq:
 kafka:
 	# https://kafka.apache.org/documentation/
 	# https://github.com/apache/kafka/blob/trunk/docker/examples/README.md
-	docker run -d --name kafka -p 9092:9092 -v kafka:/mnt/shared/config apache/kafka:3.7.0
+	docker run -d --name kafka -p 9092:9092 -v kafka:/mnt/shared/config apache/kafka:3.9.0
 
 ## swagger-ui: swagger ui
 .PHONY: swagger-ui
