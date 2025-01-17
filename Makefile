@@ -177,6 +177,7 @@ answer:
 	docker run -d --name answer -p 9080:80 -v answer:/data answerdev/answer:latest
 
 ## minDoc: MinDoc docker
+.PHONY: minDoc
 minDoc:
 	# 创建数据库: CREATE DATABASE `mindoc_db`;
 	# web browser: http://127.0.0.1:8181
@@ -185,3 +186,15 @@ minDoc:
 	docker run -d --name mindoc -p 8181:8181 -e MINDOC_DB_ADAPTER=mysql -e MINDOC_DB_HOST=host.docker.internal -e MINDOC_DB_PORT=3306 -e MINDOC_DB_DATABASE=mindoc_db -e MINDOC_DB_USERNAME=root -e MINDOC_DB_PASSWORD=123456 -e httpport=8181 -d registry.cn-hangzhou.aliyuncs.com/mindoc-org/mindoc:v2.1
 
 
+## siyuan: siyuan docker
+.PHONY: siyuan
+siyuan:
+	# web browser: http://127.0.0.1:6806
+	# github地址: https://github.com/siyuan-note/siyuan
+	docker run -d --name siyuan \
+  -v siyuan:/siyuan/workspace \
+  -p 6806:6806 \
+  -e PUID=1001 -e PGID=1002 \
+  b3log/siyuan \
+  --workspace=/siyuan/workspace/ \
+  --accessAuthCode=123456
