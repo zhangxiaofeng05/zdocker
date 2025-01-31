@@ -119,6 +119,17 @@ etcd:
 	# -e ALLOW_NONE_AUTHENTICATION=yes 不设置密码
 	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ETCD_ROOT_PASSWORD=123456 -v etcd:/bitnami/etcd bitnami/etcd:3.5.14
 
+## open-webui: open-webui docker
+.PHONY: open-webui
+open-webui:
+	# web: http://127.0.0.1:3000
+	# github地址: https://github.com/open-webui/open-webui
+	# 支持各种兼容 OpenAI 的 API
+	# 1. ollama 安装在电脑上,使用此命令
+	# docker run -d --name open-webui-local -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui-local:/app/backend/data ghcr.io/open-webui/open-webui:main
+	# 2. ollama 安装在别的服务器上,使用此命令
+	docker run -d --name open-webui-remote -p 3000:8080 -e OLLAMA_BASE_URL=http://192.168.1.8:11434 -v open-webui-remote:/app/backend/data ghcr.io/open-webui/open-webui:main
+
 ## consul: consul docker
 .PHONY: consul
 consul:
