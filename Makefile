@@ -209,3 +209,11 @@ siyuan:
   b3log/siyuan \
   --workspace=/siyuan/workspace/ \
   --accessAuthCode=123456
+
+## memos: memos docker
+.PHONY: memos
+memos:
+	# web browser: http://127.0.0.1:5230
+	# github地址: https://github.com/usememos/memos
+	docker run -d --name memos -p 5230:5230 -v memos:/var/opt/memos neosmemo/memos:stable
+
