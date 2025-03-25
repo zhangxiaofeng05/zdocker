@@ -156,6 +156,12 @@ elasticsearch:
 	# Password for the 'elastic' user (at least 6 characters)
 	docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e discovery.type=single-node -e ELASTIC_PASSWORD=123456 -e xpack.security.enabled=true -v elasticsearch:/usr/share/elasticsearch/data elasticsearch:8.14.0
 
+## openobserve: openobserve docker
+.PHONY: openobserve
+openobserve:
+	# http://localhost:5080/  https://openobserve.ai/docs/quickstart/#self-hosted-installation
+	docker run -d --name openobserve -p 5080:5080 -v openobserve:/data -e ZO_DATA_DIR="/data" -e ZO_ROOT_USER_EMAIL="f154704230@gmail.com" -e ZO_ROOT_USER_PASSWORD="12345678a" public.ecr.aws/zinclabs/openobserve:latest
+
 ## grafana: grafana docker
 .PHONY: grafana
 grafana:
