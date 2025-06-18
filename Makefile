@@ -223,3 +223,9 @@ memos:
 	# github地址: https://github.com/usememos/memos
 	docker run -d --name memos -p 5230:5230 -v memos:/var/opt/memos neosmemo/memos:stable
 
+## libretv: libretv docker
+.PHONY: libretv
+libretv:
+	# web browser: http://127.0.0.1:8899
+	# github地址: https://github.com/LibreSpark/LibreTV
+	docker run -d --name libretv -p 8899:8080 -e PASSWORD=123456 -e ADMINPASSWORD=123321 bestzwei/libretv:latest
