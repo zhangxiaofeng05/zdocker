@@ -231,3 +231,10 @@ libretv:
 	# web browser: http://127.0.0.1:8899
 	# github地址: https://github.com/LibreSpark/LibreTV
 	docker run -d --name libretv -p 8899:8080 -e PASSWORD=123456 -e ADMINPASSWORD=123321 bestzwei/libretv:latest
+
+## uptime-kuma: uptime-kuma docker
+.PHONY: uptime-kuma
+uptime-kuma:
+	# web browser: http://127.0.0.1:3001
+	# github地址: https://github.com/louislam/uptime-kuma
+	docker run -d --name uptime-kuma -p 3001:3001 -v uptime-kuma:/app/data louislam/uptime-kuma:1
