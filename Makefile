@@ -232,6 +232,13 @@ libretv:
 	# github地址: https://github.com/LibreSpark/LibreTV
 	docker run -d --name libretv -p 8899:8080 -e PASSWORD=123456 -e ADMINPASSWORD=123321 bestzwei/libretv:latest
 
+## moontv: moontv docker
+.PHONY: moontv
+moontv:
+	# web browser: http://127.0.0.1:3000
+	# github地址: https://github.com/senshinya/MoonTV
+	docker run -d --name moontv -p 3000:3000 -e PASSWORD=123456 ghcr.io/senshinya/moontv:latest
+
 ## uptime-kuma: uptime-kuma docker
 .PHONY: uptime-kuma
 uptime-kuma:
