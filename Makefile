@@ -245,3 +245,11 @@ uptime-kuma:
 	# web browser: http://127.0.0.1:3001
 	# github地址: https://github.com/louislam/uptime-kuma
 	docker run -d --name uptime-kuma -p 3001:3001 -v uptime-kuma:/app/data louislam/uptime-kuma:1
+
+## vocechat-server: vocechat-server docker
+.PHONY: vocechat-server
+vocechat-server:
+	# web browser: http://127.0.0.1:3000
+	# 主页: https://voce.chat/zh-CN
+	# 部署的服务只能 20 个账户,只能发消息,文件。不能语音和视频。和 rocket.chat 类似,有各平台的客户端。
+	docker run -d --name vocechat-server -p 3000:3000 privoce/vocechat-server:latest
