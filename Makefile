@@ -253,3 +253,11 @@ vocechat-server:
 	# 主页: https://voce.chat/zh-CN
 	# 部署的服务只能 20 个账户,只能发消息,文件。不能语音和视频。和 rocket.chat 类似,有各平台的客户端。
 	docker run -d --name vocechat-server -p 3000:3000 privoce/vocechat-server:latest
+
+## navidrome: navidrome docker
+.PHONY: navidrome
+navidrome:
+	# web browser: http://127.0.0.1:4533
+	# github地址: https://github.com/navidrome/navidrome/
+	# 音乐文件复制进容器: docker cp 本地文件夹或文件 容器ID或者容器名:/music
+	docker run -d --name navidrome -p 4533:4533 -v navidrome:/music -v navidrome:/data -e ND_LOGLEVEL=info deluan/navidrome:latest
