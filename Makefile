@@ -181,6 +181,14 @@ nats:
 	# https://docs.nats.io/running-a-nats-service/nats_docker/nats-docker-tutorial
 	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:2.10.17
 
+## rustfs: rustfs docker
+.PHONY: rustfs
+rustfs:
+	# default root credentials rustfsadmin:rustfsadmin
+	# web browser: http://127.0.0.1:9000
+	# github地址: https://github.com/rustfs/rustfs
+	docker run -d --name rustfs -p 9000:9000 -v rustfs:/data rustfs/rustfs
+
 # ## minio: minio docker
 # .PHONY: minio
 # minio:
