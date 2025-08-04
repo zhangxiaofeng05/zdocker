@@ -181,12 +181,14 @@ nats:
 	# https://docs.nats.io/running-a-nats-service/nats_docker/nats-docker-tutorial
 	docker run -d --name nats -p 4222:4222 -p 6222:6222 -p 8222:8222 nats:2.10.17
 
-## minio: minio docker
-.PHONY: minio
-minio:
-	# default root credentials minioadmin:minioadmin
-	# web browser http://127.0.0.1:9001
-	docker run -d --name minio -p 9000:9000 -p 9001:9001 -v minio:/data minio/minio server /data --console-address ":9001"
+# ## minio: minio docker
+# .PHONY: minio
+# minio:
+# 	# default root credentials minioadmin:minioadmin
+# 	# web browser http://127.0.0.1:9001
+# 	# github地址: https://github.com/minio/minio
+# 	# 免费License只能用于测试和开发，生产使用需要付费购买许可证。开源免费版本基本不能再使用，放弃
+# 	docker run -d --name minio -p 9000:9000 -p 9001:9001 -v minio:/data quay.io/minio/minio server /data --console-address ":9001"
 
 ## answer: answer docker
 .PHONY: answer
