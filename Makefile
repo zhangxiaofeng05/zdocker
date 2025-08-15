@@ -271,3 +271,14 @@ navidrome:
 	# github地址: https://github.com/navidrome/navidrome/
 	# 音乐文件复制进容器: docker cp 本地文件夹或文件 容器ID或者容器名:/music
 	docker run -d --name navidrome -p 4533:4533 -v navidrome:/music -v navidrome:/data -e ND_LOGLEVEL=info deluan/navidrome:latest
+
+## screego: screego docker
+.PHONY: screego
+screego:
+	# web browser: http://127.0.0.1:5050
+	# github地址: https://github.com/screego/server
+	# 部署文档:https://screego.net/#/install?id=docker  获取公网ip: curl 'https://api.ipify.org'
+	# 必须使用 反向代理 配置证书，共享屏幕需要使用 https 访问
+	# 可以使用自签名证书,使用 https 和 ip 地址访问。
+	# 也可绑定域名，使用 https://github.com/acmesh-official/acme.sh 申请证书, 使用 https 和域名访问
+	docker run -d --name screego -p 3478:3478 -p 5050:5050 -e SCREEGO_EXTERNAL_IP=EXTERNALIP ghcr.io/screego/server:1.12.0
