@@ -282,3 +282,10 @@ screego:
 	# 可以使用自签名证书,使用 https 和 ip 地址访问。
 	# 也可绑定域名，使用 https://github.com/acmesh-official/acme.sh 申请证书, 使用 https 和域名访问
 	docker run -d --name screego -p 3478:3478 -p 5050:5050 -e SCREEGO_EXTERNAL_IP=EXTERNALIP ghcr.io/screego/server:1.12.0
+
+## it-tools: it-tools docker
+.PHONY: it-tools
+it-tools:
+	# web browser: http://127.0.0.1:8080
+	# github地址: https://github.com/CorentinTh/it-tools
+	docker run -d --name it-tools -p 8080:80 corentinth/it-tools:latest
