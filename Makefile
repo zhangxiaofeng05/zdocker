@@ -235,19 +235,13 @@ memos:
 	# github地址: https://github.com/usememos/memos
 	docker run -d --name memos -p 5230:5230 -v memos:/var/opt/memos neosmemo/memos:stable
 
+# 不再维护
 ## libretv: libretv docker
 .PHONY: libretv
 libretv:
 	# web browser: http://127.0.0.1:8899
 	# github地址: https://github.com/LibreSpark/LibreTV
 	docker run -d --name libretv -p 8899:8080 -e PASSWORD=123456 -e ADMINPASSWORD=123321 bestzwei/libretv:latest
-
-## moontv: moontv docker
-.PHONY: moontv
-moontv:
-	# web browser: http://127.0.0.1:3000
-	# github地址: https://github.com/senshinya/MoonTV
-	docker run -d --name moontv -p 3000:3000 -e PASSWORD=123456 ghcr.io/senshinya/moontv:latest
 
 ## uptime-kuma: uptime-kuma docker
 .PHONY: uptime-kuma
@@ -278,10 +272,10 @@ screego:
 	# web browser: http://127.0.0.1:5050
 	# github地址: https://github.com/screego/server
 	# 部署文档:https://screego.net/#/install?id=docker  获取公网ip: curl 'https://api.ipify.org'
-	# 必须使用 反向代理 配置证书，共享屏幕需要使用 https 访问
-	# 可以使用自签名证书,使用 https 和 ip 地址访问。
+	# 必须使用 反向代理 通过 TLS ,共享屏幕需要使用 https 访问。WebRTC 需要真实的 TLS证书。
+	# 可以使用自签名证书,使用 https 和 ip 地址访问,无法远程共享屏幕。
 	# 也可绑定域名，使用 https://github.com/acmesh-official/acme.sh 申请证书, 使用 https 和域名访问
-	docker run -d --name screego -p 3478:3478 -p 5050:5050 -e SCREEGO_EXTERNAL_IP=EXTERNALIP ghcr.io/screego/server:1.12.0
+	docker run -d --name screego -p 3478:3478 -p 5050:5050 -p 50000-50200:50000-50200/udp -e SCREEGO_EXTERNAL_IP=EXTERNALIP -e SCREEGO_TURN_PORT_RANGE=50000:50200 ghcr.io/screego/server:1.12.0
 
 ## it-tools: it-tools docker
 .PHONY: it-tools
