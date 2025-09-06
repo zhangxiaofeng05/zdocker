@@ -243,6 +243,17 @@ libretv:
 	# github地址: https://github.com/LibreSpark/LibreTV
 	docker run -d --name libretv -p 8899:8080 -e PASSWORD=123456 -e ADMINPASSWORD=123321 bestzwei/libretv:latest
 
+## katelyatv: libretv docker
+.PHONY: katelyatv
+katelyatv:
+	# web browser: http://127.0.0.1:3000
+	# github地址: https://github.com/katelya77/KatelyaTV
+	docker run -d --name katelyatv \
+		-p 3000:3000 \
+		-e PASSWORD=123456 \
+		-v ./data/katelyatv/config.json:/app/config.json:ro \
+		ghcr.io/katelya77/katelyatv:latest
+
 ## uptime-kuma: uptime-kuma docker
 .PHONY: uptime-kuma
 uptime-kuma:
