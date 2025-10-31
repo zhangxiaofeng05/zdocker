@@ -5,3 +5,6 @@ https://developers.plane.so/self-hosting/methods/docker-compose#install-communit
 ```
 ./setup.sh
 ```
+
+## browser
+http://localhost
