@@ -294,3 +294,11 @@ it-tools:
 	# web browser: http://127.0.0.1:8080
 	# github地址: https://github.com/CorentinTh/it-tools
 	docker run -d --name it-tools -p 8080:80 corentinth/it-tools:latest
+
+## v2raya: v2raya docker
+.PHONY: v2raya
+v2raya:
+	# web browser: http://localhost:2017
+	# github地址: https://github.com/v2rayA/v2rayA
+	# 文档: https://v2raya.org/
+	docker run -d --name v2raya -p 2017:2017 -p 20170-20172:20170-20172 mzz2017/v2raya
