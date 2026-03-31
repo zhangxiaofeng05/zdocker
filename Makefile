@@ -14,7 +14,8 @@ mysql:
 ## rabbitmq: rabbitmq docker
 .PHONY: rabbitmq
 rabbitmq:
-	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 -v rabbitmq:/var/lib/rabbitmq rabbitmq:3.11.0-management
+	# management: http://127.0.0.1:15672  guest/guest
+	docker run -d --name rabbitmq -p 15672:15672 -p 5672:5672 -v rabbitmq:/var/lib/rabbitmq rabbitmq:4.2.3-management
 
 ## kafka: kafka docker
 .PHONY: kafka
@@ -61,7 +62,7 @@ jenkins:
 ## postgres: postgres docker
 .PHONY: postgres
 postgres:
-	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres
+	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v postgres:/var/lib/postgresql/data postgres:18
 
 ## ClickHouse: ClickHouse docker
 .PHONY: ClickHouse
@@ -83,7 +84,7 @@ httpbin:
 ## redis: redis docker
 .PHONY: redis
 redis:
-	docker run -d --name redis -p 6379:6379 -v redis:/data redis:7.2.5 --requirepass "123456"
+	docker run -d --name redis -p 6379:6379 -v redis:/data redis:8.4 --requirepass "123456"
 
 ## rediscli: redis cli
 .PHONY: rediscli
@@ -115,7 +116,7 @@ dbgate:
 .PHONY: etcd
 etcd:
 	# https://github.com/bitnami/containers/tree/main/bitnami/etcd
-	#  参数设置：https://github.com/bitnami/containers/tree/main/bitnami/etcd#environment-variables
+	#  参数设置: https://github.com/bitnami/containers/tree/main/bitnami/etcd#environment-variables
 	# -e ALLOW_NONE_AUTHENTICATION=yes 不设置密码
 	docker run -d --name etcd -p 2379:2379 -p 2380:2380 -e ETCD_ROOT_PASSWORD=123456 -v etcd:/bitnami/etcd bitnami/etcd:3.5.14
 
@@ -213,7 +214,6 @@ minDoc:
 	# 默认用户名: admin 密码: 123456
 	# github地址: https://github.com/mindoc-org/mindoc
 	docker run -d --name mindoc -p 8181:8181 -e MINDOC_DB_ADAPTER=mysql -e MINDOC_DB_HOST=host.docker.internal -e MINDOC_DB_PORT=3306 -e MINDOC_DB_DATABASE=mindoc_db -e MINDOC_DB_USERNAME=root -e MINDOC_DB_PASSWORD=123456 -e httpport=8181 -d registry.cn-hangzhou.aliyuncs.com/mindoc-org/mindoc:v2.1
-
 
 ## siyuan: siyuan docker
 .PHONY: siyuan
