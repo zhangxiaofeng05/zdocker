@@ -302,3 +302,11 @@ v2raya:
 	# github地址: https://github.com/v2rayA/v2rayA
 	# 文档: https://v2raya.org/
 	docker run -d --name v2raya -p 2017:2017 -p 20170-20172:20170-20172 mzz2017/v2raya
+
+## stirling-pdf: stirling-pdf docker
+.PHONY: stirling-pdf
+stirling-pdf:
+	# PDF编辑器
+	# web browser: http://localhost:8080
+	# github地址: https://github.com/Stirling-Tools/Stirling-PDF
+	docker run -d --name stirling-pdf -p 8080:8080 docker.stirlingpdf.com/stirlingtools/stirling-pdf
