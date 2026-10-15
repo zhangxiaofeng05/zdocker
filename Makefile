@@ -151,6 +151,19 @@ open-webui:
 	# 2. ollama 安装在别的服务器上,使用此命令
 	# docker run -d --name open-webui-remote -p 3000:8080 -e OLLAMA_BASE_URL=http://192.168.1.8:11434 -v open-webui-remote:/app/backend/data ghcr.io/open-webui/open-webui:main
 
+## newapi: newapi docker
+.PHONY: newapi
+newapi:
+	# 文档: https://docs.newapi.ai/zh/docs/installation/deployment-methods/docker-installation
+	# github: https://github.com/QuantumNous/new-api
+	# web: http://127.0.0.1:3000
+	docker run -d --name new-api --network moon --restart always \
+  	-p 3000:3000 \
+  	-e SQL_DSN="root:123456@tcp(mysql8.0:3306)/newapi" \
+  	-e TZ=Asia/Shanghai \
+  	-v new-api:/data \
+  	calciumion/new-api:v1.0.0-rc.44
+
 ## consul: consul docker
 .PHONY: consul
 consul:
